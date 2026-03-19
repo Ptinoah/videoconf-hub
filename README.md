@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/yG4fmUyZ)
 # Projet VideoConf Hub
 
 Dans le cadre du cours de travaux pratiques de développement frontend avancé, vous devez concevoir et développer une application web complète en React. Cette application a pour vocation de centraliser et d'explorer les chaînes YouTube dédiées aux conférences techniques en développement logiciel et en cybersécurité, à l'image de Devoxx France, DEFCONConference, ou encore GDG France.
