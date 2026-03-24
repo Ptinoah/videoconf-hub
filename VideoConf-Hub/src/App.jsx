@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Search from './Components/Search';
+import monLogo from './assets/logo.webp';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -19,6 +20,9 @@ function App() {
 
   return (
     <>
+      <header>
+        <img src={monLogo} alt="" id="logo"/>
+      </header>
       <Search onSearch={handleSearch} searchTerm={currentSearch}/>
       { showPage() }
     </>
