@@ -1,11 +1,14 @@
 const Search = ({onSearch, searchTerm}) => {
     return (
-       <>
-            <label htmlFor="search">Rechercher une chaine: </label>
-            <input name="search" type="text" onChange={onSearch}/>
-            <p>{searchTerm}</p>
-            <button>Rechercher</button>
-        </> 
+       <div className="search-section">
+            <div className="search-bar-container">
+                <div className="search-input-wrapper">
+                    <input className="search-input" placeholder="Rechercher" type="text" onChange={onSearch} />
+                </div>
+                <button className="search-button">Rechercher</button>
+            </div>
+            <p className="search-text">Recherche de : <strong>{searchTerm}</strong></p>
+        </div>
     )
     
 }
