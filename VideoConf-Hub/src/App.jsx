@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import './App.css'
 import Home from './Components/Pages/Home';
 import Search from './Components/Search';
@@ -6,24 +6,29 @@ import monLogo from './assets/logo.webp';
 import YoutubeGET from './Components/YoutubeGET';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Channel from './Components/Pages/Channel';
+import PlaylistGet from './Components/Pages/ChannelPage/PlaylistGet';
 
 function App() {
   const channel_id_list = JSON.parse(import.meta.env.VITE_CHANNELS_ID);
   const [currentPage, setCurrentPage] = useState('home');
   const [currentSearch, setCurrentSearch] = useState('');
-  const [channelList, setChannelList] = useState([])
+  const [currentChannel, setCurrentChannel] = useState();
+  const [channelList, setChannelList] = useState([]);
+
   const handleSearch = (event) => {
     setCurrentSearch(event.target.value);
   }
   const handleHomeClick = () => {
     setCurrentPage('home')
   }
+
   const showPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home channels={channelList}/>;
+        return <Home channels={channelList} setCurrentPage={setCurrentPage} setCurrentChannel={setCurrentChannel}/>;
       case 'channel':
-        return
+        return <Channel currentChannel={currentChannel} PlaylistGet={PlaylistGet}/>;
       default:
         return <h1>Error 404</h1>;
     }
