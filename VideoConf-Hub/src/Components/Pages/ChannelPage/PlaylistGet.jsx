@@ -1,32 +1,34 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const PlaylistGet = ({ channelId }) => {
+const PlaylistGet = ({ channelId, setLoading }) => {
     const [playlists, setPlaylists] = useState([]);
-
     useEffect(() => {
         const fetchPlaylists = async () => {
             const API_KEY = import.meta.env.VITE_API_KEY;
-            const { data } = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
-                params: {
-                    part: 'snippet,contentDetails',
-                    channelId,
-                    maxResults: 50,
-                    order: 'date',
-                    key: API_KEY,
-                }
-            });
-
-            setPlaylists(data.items.map(playlist => ({
-                id: playlist.id,
-                title: playlist.snippet.title,
-                description: playlist.snippet.description,
-                thumbnail: playlist.snippet.thumbnails.medium.url,
-                videoCount: playlist.contentDetails.itemCount,
-                publishedAt: playlist.snippet.publishedAt,
-            })));
+            try {
+                const { data } = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
+                    params: {
+                        part: 'snippet,contentDetails',
+                        channelId,
+                        maxResults: 50,
+                        key: API_KEY,
+                    }
+                });
+                setPlaylists(data.items.map(playlist => ({
+                    id: playlist.id,
+                    title: playlist.snippet.title,
+                    description: playlist.snippet.description,
+                    thumbnail: playlist.snippet.thumbnails.medium.url,
+                    videoCount: playlist.contentDetails.itemCount,
+                    publishedAt: playlist.snippet.publishedAt,
+                })));
+            } catch (error) {
+                console.error("Erreur fetch playlists:", error);
+            } finally {
+                setLoading(false);
+            }
         };
-
         fetchPlaylists();
     }, [channelId]);
 

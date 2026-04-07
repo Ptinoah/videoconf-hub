@@ -11,6 +11,7 @@ import PlaylistGet from './Components/Pages/ChannelPage/PlaylistGet';
 
 function App() {
   const channel_id_list = JSON.parse(import.meta.env.VITE_CHANNELS_ID);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState('home');
   const [currentSearch, setCurrentSearch] = useState('');
   const [currentChannel, setCurrentChannel] = useState();
@@ -20,15 +21,15 @@ function App() {
     setCurrentSearch(event.target.value);
   }
   const handleHomeClick = () => {
-    setCurrentPage('home')
+    setCurrentPage('home');
   }
 
   const showPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home channels={channelList} setCurrentPage={setCurrentPage} setCurrentChannel={setCurrentChannel}/>;
+        return <Home channels={channelList} setCurrentPage={setCurrentPage} setCurrentChannel={setCurrentChannel} setLoading={setLoading}/>;
       case 'channel':
-        return <Channel currentChannel={currentChannel} PlaylistGet={PlaylistGet}/>;
+        return <Channel currentChannel={currentChannel} PlaylistGet={PlaylistGet} setLoading={setLoading}/>;
       default:
         return <h1>Error 404</h1>;
     }
@@ -38,8 +39,8 @@ function App() {
     <div className="app-container">
       <Header Search={Search} myLogo={monLogo} handleHomeClick={handleHomeClick} handleSearch={handleSearch} currentSearch={currentSearch}/>
       <main className="main-content">
-        <YoutubeGET channels={channel_id_list} addChannel={setChannelList} />
-        { showPage() }
+        { loading ? <h1>Chargement...</h1> : showPage() }
+        <YoutubeGET channels={channel_id_list} addChannel={setChannelList} setLoading={setLoading} />
       </main>
       <Footer socials={socials}/>
     </div>

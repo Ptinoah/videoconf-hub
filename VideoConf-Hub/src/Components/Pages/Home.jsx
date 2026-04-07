@@ -1,7 +1,8 @@
-const Home = ({ channels, setCurrentPage, setCurrentChannel}) => {
+const Home = ({ channels, setCurrentPage, setCurrentChannel, setLoading}) => {
     let channelClicker = (channel) => {
         setCurrentPage('channel');
-        setCurrentChannel(channel)
+        setCurrentChannel(channel);
+        setLoading(true);
     }
     return (
         <div className="channels-container">
@@ -10,7 +11,7 @@ const Home = ({ channels, setCurrentPage, setCurrentChannel}) => {
                     <img src={channel.thumbnail} alt={channel.name}className="channel-thumbnail"/>
                     <div className="channel-info">
                         <h3>{channel.name}</h3>
-                        <p>{channel.subscribers} abonnés - {channel.videoCount}</p>
+                        <p>{channel.subscribers} abonnés - {channel.videoCount} vidéos</p>
                         <p className="channel-description">{channel.description}</p>
                     </div>
                 </div>
