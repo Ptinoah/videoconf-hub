@@ -8,6 +8,6 @@ const Header = ({Search, myLogo, handleHomeClick, handleSearch, currentSearch}) 
             <Search onSearch={handleSearch} searchTerm={currentSearch}/>
         </header>
     )
-}
+};
 
 export default Header
