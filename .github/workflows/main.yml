@@ -11,7 +11,7 @@ jobs:
     # Définit le répertoire de travail par défaut pour toutes les étapes "run" de ce job
     defaults:
       run:
-        working-directory: ./VideoConf-Hub
+        working-directory: ./VideoConf-Hub/src
     
     permissions:
       contents: read
