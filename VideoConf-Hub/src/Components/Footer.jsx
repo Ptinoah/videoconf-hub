@@ -9,6 +9,6 @@ const Footer = ({socials}) => {
             <span>Copyright blablabla</span>
         </footer>
     )
-}
+};
 
 export default Footer

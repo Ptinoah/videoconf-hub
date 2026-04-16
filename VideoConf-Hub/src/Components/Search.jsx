@@ -10,7 +10,6 @@ const Search = ({onSearch, searchTerm}) => {
             <p className="search-text">Recherche de : <strong>{searchTerm}</strong></p>
         </div>
     )
-    
-}
+};
 
 export default Search

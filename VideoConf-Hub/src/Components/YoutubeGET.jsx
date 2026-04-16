@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 
-const YoutubeGET = ({ channels, addChannel }) => {
+const YoutubeGET = ({ channels, addChannel, setLoading }) => {
     const api_key = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
@@ -21,7 +21,9 @@ const YoutubeGET = ({ channels, addChannel }) => {
                         thumbnail: item.snippet.thumbnails.medium.url,
                         subscribers: item.statistics.subscriberCount,
                         description: item.snippet.description,
+                        videoCount: item.statistics.videoCount,
                     });
+                    setLoading(false);
                 }
             } catch (err) {
                 console.error(`Erreur pour ${channel.name}:`, err);
