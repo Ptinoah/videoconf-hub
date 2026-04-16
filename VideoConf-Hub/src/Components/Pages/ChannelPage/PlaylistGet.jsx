@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const PlaylistGet = ({ channelId, setLoading }) => {
+const PlaylistGet = ({ channelId, setLoading, onPlaylistClick }) => {
     const [playlists, setPlaylists] = useState([]);
+
     useEffect(() => {
         const fetchPlaylists = async () => {
             const API_KEY = import.meta.env.VITE_API_KEY;
@@ -35,7 +36,7 @@ const PlaylistGet = ({ channelId, setLoading }) => {
     return (
         <div className="playlists-grid">
             {playlists.map(playlist => (
-                <div key={playlist.id} className="playlist-card">
+                <div key={playlist.id} className="playlist-card" onClick={() => onPlaylistClick(playlist)} style={{ cursor: 'pointer' }}>
                     <div className="playlist-thumbnail-container">
                         <img src={playlist.thumbnail} alt={playlist.title} className="playlist-thumbnail" />
                         <div className="playlist-overlay">
@@ -52,4 +53,4 @@ const PlaylistGet = ({ channelId, setLoading }) => {
     );
 };
 
-export default PlaylistGet
+export default PlaylistGet;
