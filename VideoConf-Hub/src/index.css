@@ -1,6 +1,3 @@
-/* =========================================
-   1. VARIABLES & RESET
-   ========================================= */
 :root {
   --bg-color: #f9f9f9;
   --text-primary: #0f0f0f;
@@ -47,9 +44,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================
-   2. NAVBAR & HEADER
-   ========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -59,7 +53,7 @@ body {
   position: sticky;
   top: 0;
   background-color: var(--nav-bg);
-  backdrop-filter: blur(10px); /* Effet verre dépoli */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   z-index: 100;
 }
@@ -88,9 +82,6 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* =========================================
-   3. RECHERCHE (SEARCH)
-   ========================================= */
 .search-section {
   display: flex;
   flex-direction: column;
@@ -147,9 +138,6 @@ body {
   background-color: var(--hover-bg);
 }
 
-/* =========================================
-   4. LAYOUT PRINCIPAL & CHAINES (HOME)
-   ========================================= */
 .main-content {
   padding: 24px;
 }
@@ -208,9 +196,6 @@ body {
   line-height: 1.4;
 }
 
-/* =========================================
-   5. PAGE CHAINE (CHANNEL)
-   ========================================= */
 .user-channel-container {
   display: flex;
   flex-wrap: wrap;
@@ -219,7 +204,6 @@ body {
   align-items: flex-start;
 }
 
-/* Le titre h2 prend toute la largeur au dessus */
 .user-channel-container > h2 {
   width: 100%;
   margin-top: 0;
@@ -238,7 +222,6 @@ body {
   box-shadow: var(--card-shadow);
 }
 
-/* Pour que Playlist (qui s'affiche à côté) prenne le reste de l'espace */
 .playlist-page {
   flex: 1;
   display: flex;
@@ -246,9 +229,6 @@ body {
   gap: 24px;
 }
 
-/* =========================================
-   6. PLAYLISTS & VIDEOS GRIDS
-   ========================================= */
 .playlists-grid, .videos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -329,9 +309,6 @@ body {
   color: inherit;
 }
 
-/* =========================================
-   7. PAGE VIDEO (PLAYER)
-   ========================================= */
 .video-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -367,7 +344,7 @@ body {
   border: none;
   border-radius: 12px;
   aspect-ratio: 16 / 9;
-  height: auto; /* Force le ratio basé sur la largeur */
+  height: auto;
 }
 
 .video-player h3 {
@@ -389,9 +366,6 @@ body {
   margin-bottom: 16px;
 }
 
-/* =========================================
-   8. BOUTONS GENERIQUES & FOOTER
-   ========================================= */
 .load-more-button {
   display: block;
   margin: 30px auto;
@@ -435,9 +409,21 @@ body {
   transform: scale(1.1);
 }
 
-/* =========================================
-   9. RESPONSIVE DESIGN (Mobiles)
-   ========================================= */
+.show-more-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color, #065fd4);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 0 0 8px;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.show-more-btn:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0 12px;
