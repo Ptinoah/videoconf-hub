@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ExpandableText from "../../ExpandableText";
 import axios from "axios";
 
 const VideoGet = ({ videoId }) => {
@@ -47,7 +48,7 @@ const VideoGet = ({ videoId }) => {
                 />
                 <h3>{video.title}</h3>
                 <p>{video.viewCount} vues · {video.likeCount} likes</p>
-                <p>{video.description}</p>
+                <ExpandableText text={video.description} limit={150}/>
             </div>
         </div>
     );
