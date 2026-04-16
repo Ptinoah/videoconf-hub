@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Playlist = ({ playlist }) => {
+    const navigate = useNavigate()
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -41,12 +43,12 @@ const Playlist = ({ playlist }) => {
                 <div className="videos-grid">
                     {videos.map(video => (
                         <div key={video.id} className="video-card">
-                            <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">
+                            <div onClick={() => navigate(`/video/${video.id}`)}>
                                 {video.thumbnail && <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />}
                                 <div className="video-info">
                                     <h4>{video.title}</h4>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     ))}
                 </div>

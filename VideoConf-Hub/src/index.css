@@ -132,25 +132,15 @@ body {
   row-gap: 40px;
 }
 
-.channel-card {
+.user-channel-container {
   display: flex;
-  flex-direction: column;
-  padding: 5px;
-  cursor: pointer;
-  border: 2px solid rgb(170, 207, 212); border-radius: 10px
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
 }
 
-.channel-card:hover {
-  transform: scale(1.05);
-}
-
-.thumbnail-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9; 
-  background-color: var(--hover-bg);
-  border-radius: 12px;
-  margin-bottom: 12px;
-  transition: transform 0.2s ease;
+.channel-content {
+  flex: 1;
 }
 
 .channel-card {
@@ -158,15 +148,24 @@ body {
   flex-direction: column;
   padding: 12px;
   cursor: pointer;
-  border: 1px solid var(--border-color);
+  border: 2px solid rgb(170, 207, 212);
   border-radius: 12px;
   background-color: var(--nav-bg);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .channel-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  background-color: var(--hover-bg);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease;
 }
 
 .channel-thumbnail {
@@ -201,10 +200,6 @@ body {
 .footer-container {
   border-top: #aaaaaa double 5px;
   text-align: center;
-}
-
-.user-channel-container {
-    display: flex;
 }
 
 .playlist-container {
@@ -288,6 +283,7 @@ body {
 
 .playlist-page {
   display: flex;
+  flex-direction: row;
   gap: 24px;
 }
 
