@@ -4,6 +4,7 @@ import axios from "axios";
 
 const VideoGet = ({ videoId }) => {
     const [video, setVideo] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchVideo = async () => {
@@ -16,24 +17,32 @@ const VideoGet = ({ videoId }) => {
                         key: API_KEY,
                     }
                 });
+                
+                if (!data.items?.length) {
+                    setError("Vidéo introuvable.");
+                    return;
+                }
+
                 const v = data.items[0];
                 setVideo({
                     id: v.id,
-                    title: v.snippet.title,
-                    description: v.snippet.description,
-                    publishedAt: v.snippet.publishedAt,
-                    channelId: v.snippet.channelId,
-                    duration: v.contentDetails.duration,
-                    viewCount: v.statistics.viewCount,
-                    likeCount: v.statistics.likeCount,
+                    title: v.snippet?.title,
+                    description: v.snippet?.description,
+                    publishedAt: v.snippet?.publishedAt,
+                    channelId: v.snippet?.channelId,
+                    duration: v.contentDetails?.duration,
+                    viewCount: v.statistics?.viewCount,
+                    likeCount: v.statistics?.likeCount,
                 });
-            } catch (error) {
-                console.error("Erreur fetch video:", error);
+            } catch (err) {
+                console.error("Erreur fetch video:", err);
+                setError("Erreur lors du chargement de la vidéo.");
             }
         };
         fetchVideo();
     }, [videoId]);
 
+    if (error) return <p>{error}</p>;
     if (!video) return <p>Chargement...</p>;
 
     return (
