@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-import Home from './Components/Pages/Home';
 import Search from './Components/Search';
 import monLogo from './assets/logo.webp';
 import YoutubeGET from './Components/YoutubeGET';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Home from './Components/Pages/Home';
 import Channel from './Components/Pages/Channel';
+import Video from './Components/Pages/Video';
+import Error from './Components/Pages/Error';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function App() {
@@ -37,7 +39,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home channels={channelList} />} />
             <Route path="/channel/:id" element={<Channel channels={channelList} />} />
-            <Route path="*" element={<h1>Erreur 404</h1>} />
+            <Route path="/video/:id" element={<Video />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         )}
         <YoutubeGET channels={channel_id_list} addChannel={setChannelList} setLoading={setLoading} />
