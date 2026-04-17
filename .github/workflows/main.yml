@@ -32,7 +32,7 @@ jobs:
       - name: Build
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_CHANNELS_ID: ${{ secrets.VITE_CHANNELS_ID }}
+          VITE_CHANNELS_ID: ${{ vars.VITE_CHANNELS_ID }}
         run: npm run build
 
       - name: Copy 404 page for react-router
