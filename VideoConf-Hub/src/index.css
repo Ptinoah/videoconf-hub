@@ -492,11 +492,9 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
   width: 400px;
   max-width: 40vw;
   padding: 10px 20px;
-
   background-color: var(--search-btn-bg);
   color: var(--text-secondary);
   border: 1px solid var(--search-border);
