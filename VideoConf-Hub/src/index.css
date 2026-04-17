@@ -489,15 +489,23 @@ body {
 }
 
 .btn-search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 400px;
+  max-width: 40vw;
+  padding: 10px 20px;
+
   background-color: var(--search-btn-bg);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   border: 1px solid var(--search-border);
-  padding: 8px 20px;
-  border-radius: 20px;
+  border-radius: 40px;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-speed);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,7 +517,7 @@ body {
 }
 
 .btn-search:active {
-  transform: scale(0.96);
+  transform: translateX(-50%) scale(0.98);
 }
 
 @media (max-width: 768px) {
