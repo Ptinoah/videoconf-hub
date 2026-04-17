@@ -7,7 +7,9 @@ const Search = ({onSearch, searchTerm}) => {
                 </div>
                 <button className="search-button">Rechercher</button>
             </div>
-            {/*<p className="search-text">Recherche de : <strong>{searchTerm}</strong></p>*/}
+            {searchTerm && (
+                <p className="search-text">Recherche de : <strong>{searchTerm}</strong></p>
+            )}
         </div>
     )
 };
