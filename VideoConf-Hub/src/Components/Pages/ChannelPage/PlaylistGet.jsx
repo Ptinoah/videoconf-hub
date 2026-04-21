@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import menuIcon from "../../../assets/icons8-menu.svg";
 
 const PlaylistGet = ({ channelId, setLoading, onPlaylistClick }) => {
     const [playlists, setPlaylists] = useState([]);
@@ -19,10 +20,7 @@ const PlaylistGet = ({ channelId, setLoading, onPlaylistClick }) => {
                 setPlaylists(data.items.map(playlist => ({
                     id: playlist.id,
                     title: playlist.snippet.title,
-                    description: playlist.snippet.description,
-                    thumbnail: playlist.snippet.thumbnails.medium.url,
                     videoCount: playlist.contentDetails.itemCount,
-                    publishedAt: playlist.snippet.publishedAt,
                 })));
             } catch (error) {
                 console.error("Erreur fetch playlists:", error);
@@ -34,23 +32,23 @@ const PlaylistGet = ({ channelId, setLoading, onPlaylistClick }) => {
     }, [channelId]);
 
     return (
-        <div className="playlists-grid">
-            {playlists.map(playlist => (
-                <div key={playlist.id} className="playlist-card" onClick={() => onPlaylistClick(playlist)} style={{ cursor: 'pointer' }}>
-                    <div className="playlist-thumbnail-container">
-                        <img src={playlist.thumbnail} alt={playlist.title} className="playlist-thumbnail" />
-                        <div className="playlist-overlay">
-                            <span>{playlist.videoCount} vidéos</span>
+            <div className="playlists-list-container">
+                {playlists.map(playlist => (
+                    <div key={playlist.id} className="playlist-list-item" onClick={() => onPlaylistClick(playlist)}>
+                        
+                        <div className="playlist-item-left">
+                            <img src={menuIcon} alt="Playlist" className="playlist-list-icon" />
+                            <h3 className="playlist-list-title">{playlist.title}</h3>
                         </div>
+
+                        <div className="playlist-item-right">
+                            <span className="playlist-list-badge">{playlist.videoCount}</span>
+                        </div>
+
                     </div>
-                    <div className="playlist-info">
-                        <h3>{playlist.title}</h3>
-                        <p>{playlist.videoCount} vidéos</p>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};
+                ))}
+            </div>
+        );
+    };
 
 export default PlaylistGet;
