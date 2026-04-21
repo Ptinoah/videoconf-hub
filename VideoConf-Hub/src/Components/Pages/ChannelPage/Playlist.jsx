@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import WatchLaterButton from "../../Context/WatchLaterButton";
 
 const Playlist = ({ playlist }) => {
     const navigate = useNavigate();
@@ -49,14 +50,19 @@ const Playlist = ({ playlist }) => {
             ) : (
                 <>
                     <div className="videos-grid">
-                        {videos.map(video => (
-                            <div key={video.id} className="video-card" onClick={() => navigate(`/video/${video.id}`)}>
-                                {video.thumbnail && <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />}
-                                <div className="video-info">
-                                    <h4>{video.title}</h4>
+                        {videos.map(video => {
+                            return (
+                                <div key={video.id} className="video-card">
+                                    <WatchLaterButton video={video} />
+                                    <div className="video-card-content" onClick={() => navigate(`/video/${video.id}`)}>
+                                        {video.thumbnail && <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />}
+                                        <div className="video-info">
+                                            <h4>{video.title}</h4>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                     {nextPageToken && (
                         <button className="load-more-button" onClick={() => fetchVideos(nextPageToken)}>

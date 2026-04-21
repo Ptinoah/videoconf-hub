@@ -243,6 +243,7 @@ body {
   transition: transform var(--transition-speed) ease;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
 }
 
 .playlist-card:hover, .video-card:hover {
@@ -516,6 +517,39 @@ body {
 
 .btn-search:active {
   transform: translateX(-50%) scale(0.98);
+}
+
+.bookmark-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  backdrop-filter: blur(4px);
+  transition: background-color var(--transition-speed) ease, transform 0.1s ease;
+}
+
+.bookmark-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.video-card .bookmark-button {
+  opacity: 0;
+}
+
+.video-card:hover .bookmark-button {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
