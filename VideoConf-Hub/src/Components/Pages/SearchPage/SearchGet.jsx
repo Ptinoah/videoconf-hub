@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import WatchLaterButton from "../../Context/WatchLaterButton";
 
 const SearchGet = ({ searchTerm, channelId }) => {
     const [results, setResults] = useState([]);
@@ -53,6 +54,8 @@ const SearchGet = ({ searchTerm, channelId }) => {
         <div className="videos-grid">
             {results.map(video => (
                 <div key={video.id} className="video-card" onClick={() => navigate(`/video/${video.id}`)}>
+                    <WatchLaterButton video={video} />
+                    
                     {video.thumbnail && (
                         <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />
                     )}
