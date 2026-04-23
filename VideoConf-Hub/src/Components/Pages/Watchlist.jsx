@@ -52,7 +52,7 @@ const Watchlist = () => {
                                     >
                                         {video.title}
                                     </td>
-                                    <td>{video.channelTitle || "Inconnue"}</td>
+                                    <td>{video.channelTitle || "Inconnu"}</td>
                                     <td>{formatDate(video.publishedAt)}</td>
                                     <td>
                                         <div className="action-cell">
