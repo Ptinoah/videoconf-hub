@@ -9,6 +9,7 @@ const Header = ({myLogo}) => {
                 <span className="logo-text">VideoConf Hub</span>
             </div>
            <button className="btn-search" onClick={() => navigate('/search/')}>Search</button>
+           <button className="btn-watchlist" onClick={() => navigate('/watchlist/')}>Watchlist</button>
         </header>
     )
 };

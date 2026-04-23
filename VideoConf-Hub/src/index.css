@@ -594,6 +594,10 @@ body {
   opacity: 1;
 }
 
+.watchlist-container .bookmark-button {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0 12px;

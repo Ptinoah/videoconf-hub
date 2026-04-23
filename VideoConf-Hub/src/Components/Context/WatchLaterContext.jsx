@@ -2,7 +2,7 @@ import { createContext, useState, useEffect, useContext } from 'react';
 
 const WatchLaterContext = createContext();
 
-export const WatchLaterProvider = ({ children }) => {
+const WatchLaterProvider = ({ children }) => {
   const [watchLaterList, setWatchLaterList] = useState(() => {
     try {
       const storedList = localStorage.getItem('watchLaterList');
@@ -36,6 +36,7 @@ export const WatchLaterProvider = ({ children }) => {
   );
 };
 
+export default WatchLaterProvider;
 export const useWatchLater = () => {
   const context = useContext(WatchLaterContext);
   if (context === undefined) {
