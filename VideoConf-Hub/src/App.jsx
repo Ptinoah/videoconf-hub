@@ -11,10 +11,9 @@ import Search from './Components/Pages/Search';
 import Error from './Components/Pages/Error';
 import Watchlist from './Components/Pages/Watchlist';
 import WatchLaterProvider from './Components/Context/WatchLaterContext';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const navigate = useNavigate();
   const channel_id_list = JSON.parse(import.meta.env.VITE_CHANNELS_ID);
   const [loading, setLoading] = useState(true);
   const [channelList, setChannelList] = useState([]);
