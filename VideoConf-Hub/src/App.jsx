@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import monLogo from './assets/logo.webp';
 import YoutubeGET from './Components/YoutubeGET';
