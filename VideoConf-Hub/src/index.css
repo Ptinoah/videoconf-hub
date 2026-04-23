@@ -588,7 +588,9 @@ body {
   opacity: 0;
 }
 
-.video-card:hover .bookmark-button {
+.video-card:hover .bookmark-button,
+.video-card:focus-within .bookmark-button,
+.bookmark-button:focus-visible {
   opacity: 1;
 }
 
