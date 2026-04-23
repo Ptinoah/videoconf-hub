@@ -594,6 +594,86 @@ body {
   opacity: 1;
 }
 
+.watchlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--search-bg);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.watchlist-table th, .watchlist-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.watchlist-table th {
+    background-color: var(--search-btn-bg);
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.watchlist-table tr:hover {
+    background-color: var(--hover-bg);
+}
+
+.video-title-cell {
+    max-width: 300px;
+}
+
+.action-cell {
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.watchlist-table .bookmark-button {
+    opacity: 1 !important;
+    position: static;
+}
+
+.btn-watchlist {
+  padding: 8px 16px;
+  background-color: var(--search-btn-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--search-border);
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.btn-watchlist:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--accent-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.btn-watchlist:active {
+  transform: scale(0.96);
+}
+
+.watchlist-count-badge {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 12px;
+  min-width: 18px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0 12px;

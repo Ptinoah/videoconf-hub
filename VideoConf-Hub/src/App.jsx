@@ -9,7 +9,8 @@ import Channel from './Components/Pages/Channel';
 import Video from './Components/Pages/Video';
 import Search from './Components/Pages/Search';
 import Error from './Components/Pages/Error';
-import { WatchLaterProvider } from './Components/Context/WatchLaterContext';
+import Watchlist from './Components/Pages/Watchlist';
+import WatchLaterProvider from './Components/Context/WatchLaterContext';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,10 +20,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header myLogo={monLogo} />
-      
-      <main className="main-content">
-        <WatchLaterProvider>
+      <WatchLaterProvider>
+        <Header myLogo={monLogo} />
+        <main className="main-content">
           {loading ? (
             <h1>Chargement...</h1>
           ) : (
@@ -31,14 +31,15 @@ function App() {
               <Route path="/channel/:id" element={<Channel channels={channelList} />} />
               <Route path="/video/:id" element={<Video />} />
               <Route path="/search/" element={<Search channels={channel_id_list} />} />
+              <Route path="/watchlist/" element={<Watchlist />} />
               <Route path="*" element={<Error />} />
             </Routes>
           )}
           <YoutubeGET channels={channel_id_list} addChannel={setChannelList} setLoading={setLoading} />
-        </WatchLaterProvider>
-      </main>
-      
-      <Footer socials={socials} />
+        </main>
+        
+        <Footer socials={socials} />
+      </WatchLaterProvider>
     </div>
   );
 }
