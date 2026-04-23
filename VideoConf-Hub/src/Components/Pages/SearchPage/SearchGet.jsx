@@ -36,6 +36,7 @@ const SearchGet = ({ searchTerm, channelId }) => {
                     title: item.snippet.title,
                     thumbnail: item.snippet.thumbnails?.medium?.url ?? null,
                     channelTitle: item.snippet.channelTitle,
+                    publishedAt: item.snippet.publishedAt,
                 })));
             } catch (err) {
                 console.error("Erreur fetch search:", err);

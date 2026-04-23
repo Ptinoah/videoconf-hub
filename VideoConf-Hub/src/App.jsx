@@ -21,10 +21,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header myLogo={monLogo} />
-      
-      <main className="main-content">
-        <WatchLaterProvider>
+      <WatchLaterProvider>
+        <Header myLogo={monLogo} />
+        <main className="main-content">
           {loading ? (
             <h1>Chargement...</h1>
           ) : (
@@ -38,9 +37,10 @@ function App() {
             </Routes>
           )}
           <YoutubeGET channels={channel_id_list} addChannel={setChannelList} setLoading={setLoading} />
-        </WatchLaterProvider>
-      </main>
-      <Footer socials={socials} />
+        </main>
+        
+        <Footer socials={socials} />
+      </WatchLaterProvider>
     </div>
   );
 }

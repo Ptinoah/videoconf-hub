@@ -26,6 +26,8 @@ const Playlist = ({ playlist }) => {
                 id: item.snippet.resourceId.videoId,
                 title: item.snippet.title,
                 thumbnail: item.snippet.thumbnails?.medium?.url ?? item.snippet.thumbnails?.default?.url ?? null,
+                publishedAt: item.snippet.publishedAt,
+                channelTitle: item.snippet.videoOwnerChannelTitle,
             }));
 
             setVideos(prev => pageToken ? [...prev, ...newVideos] : newVideos);
