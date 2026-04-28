@@ -65,16 +65,16 @@ const Header = ({myLogo}) => {
                                 <>
                                     <div className="dropdown-header">{currentUser.email}</div>
                                     <div className="dropdown-divider"></div>
-                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/settings'); }}>Settings</button>
+                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/settings/'); }}>Settings</button>
                                     <button className="dropdown-item" onClick={handleSignOut}>Sign out</button>
                                 </>
                             ) : (
                                 <>
                                     <div className="dropdown-header">Anonyme</div>
                                     <div className="dropdown-divider"></div>
-                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/settings'); }}>Settings</button>
-                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/register'); }}>Register</button>
-                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/login'); }}>Sign In</button>
+                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/settings/'); }}>Settings</button>
+                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/register/'); }}>Register</button>
+                                    <button className="dropdown-item" onClick={() => { setIsMenuOpen(false); navigate('/login/'); }}>Sign In</button>
                                 </>
                             )}
                         </div>
