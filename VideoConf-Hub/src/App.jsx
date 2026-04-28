@@ -10,6 +10,8 @@ import Video from './Components/Pages/Video';
 import Search from './Components/Pages/Search';
 import Error from './Components/Pages/Error';
 import Watchlist from './Components/Pages/Watchlist';
+import Register from './Firebase/AuthPages/Register';
+import Login from './Firebase/AuthPages/Login';
 import WatchLaterProvider from './Components/Context/WatchLaterContext';
 import { Routes, Route } from 'react-router-dom';
 
@@ -32,6 +34,9 @@ function App() {
               <Route path="/video/:id" element={<Video />} />
               <Route path="/search/" element={<Search channels={channel_id_list} />} />
               <Route path="/watchlist/" element={<Watchlist />} />
+              <Route path="/settings/" element={<h1>Settings</h1>} />
+              <Route path="/register/" element={<Register />} />
+              <Route path="/login/" element={<Login />} />
               <Route path="*" element={<Error />} />
             </Routes>
           )}
