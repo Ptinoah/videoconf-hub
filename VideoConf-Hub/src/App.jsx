@@ -14,6 +14,7 @@ import Register from './Firebase/AuthPages/Register';
 import Login from './Firebase/AuthPages/Login';
 import WatchLaterProvider from './Components/Context/WatchLaterContext';
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './Firebase/AuthPages/ProtectedRoute';
 
 function App() {
   const channel_id_list = JSON.parse(import.meta.env.VITE_CHANNELS_ID);
@@ -33,8 +34,8 @@ function App() {
               <Route path="/channel/:id" element={<Channel channels={channelList} />} />
               <Route path="/video/:id" element={<Video />} />
               <Route path="/search/" element={<Search channels={channel_id_list} />} />
-              <Route path="/watchlist/" element={<Watchlist />} />
-              <Route path="/settings/" element={<h1>Settings</h1>} />
+              <Route path="/watchlist/" element={<ProtectedRoute><Watchlist /></ProtectedRoute>} />
+              <Route path="/settings/" element={<ProtectedRoute><h1>Settings</h1></ProtectedRoute>} />
               <Route path="/register/" element={<Register />} />
               <Route path="/login/" element={<Login />} />
               <Route path="*" element={<Error />} />
