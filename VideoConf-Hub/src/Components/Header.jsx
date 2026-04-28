@@ -33,7 +33,6 @@ const Header = ({myLogo}) => {
     const handleSignOut = () => {
         signOut(auth).then(() => {
             setIsMenuOpen(false);
-            console.log("Utilisateur déconnecté");
         }).catch((error) => {
             console.error("Erreur lors de la déconnexion", error);
         });
