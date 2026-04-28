@@ -22,3 +22,20 @@ const handleSignUp = async (email, password) => {
     console.error("Erreur d'inscription :", error.code);
   }
 };
+
+const handleLogin = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log("Utilisateur connecté !", userCredential.user.uid);
+  } catch (error) {
+    console.error("Erreur de connexion :", error.message);
+  }
+};
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Session active pour :", user.email);
+  } else {
+    console.log("Personne n'est connecté.");
+  }
+});
