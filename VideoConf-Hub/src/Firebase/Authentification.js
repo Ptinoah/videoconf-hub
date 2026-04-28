@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const parseFirebaseConfig = () => {
   const rawConfig = import.meta.env.VITE_FIREBASE_CONFIG;
@@ -24,5 +25,7 @@ const parseFirebaseConfig = () => {
 
 const firebaseConfig = parseFirebaseConfig();
 const app = firebaseConfig ? initializeApp(firebaseConfig) : null;
+
 export const auth = app ? getAuth(app) : null;
+export const db = app ? getFirestore(app) : null;
 export const googleProvider = new GoogleAuthProvider();
