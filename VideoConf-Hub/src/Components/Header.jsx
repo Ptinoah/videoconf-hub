@@ -12,14 +12,15 @@ const Header = ({myLogo}) => {
                 <img src={myLogo} alt="Logo" id="logo"/>
                 <span className="logo-text">VideoConf Hub</span>
             </div>
-           <button className="btn-search" onClick={() => navigate('/search/')}>Search</button>
+            <button className="btn-search" onClick={() => navigate('/search/')}>Search</button>
            
-           <button className="btn-watchlist" onClick={() => navigate('/watchlist/')}>
+            <button className="btn-watchlist" onClick={() => navigate('/watchlist/')}>
                 Watchlist
                 {itemsCount > 0 && (
                     <span className="watchlist-count-badge">{itemsCount}</span>
                 )}
-           </button>
+            </button>
+            <button className="btn-login" onClick={() => afficherMenuDeroulant()}>Account</button>
         </header>
     );
 };
