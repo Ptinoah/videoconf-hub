@@ -32,7 +32,7 @@ jobs:
       - name: Build
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_API_KEY_FIREBASE: ${{ secrets.VITE_API_KEY_FIREBASE }}
+          VITE_FIREBASE_CONFIG: ${{ secrets.VITE_FIREBASE_CONFIG }}
           VITE_CHANNELS_ID: ${{ vars.VITE_CHANNELS_ID }}
         run: npm run build
 
