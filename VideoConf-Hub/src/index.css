@@ -927,8 +927,7 @@ body {
   .btn-login img {
     filter: invert(1) opacity(0.9);
   }
-}
-
+  
   .auth-error {
     background-color: rgba(211, 47, 47, 0.15);
     color: #ff5252;
